@@ -1,4 +1,9 @@
 .avatar {
   height: 60px;
-  width: 60px
+  width: 60px;
+  border-radius: 50%;
+}
+
+.avatar:hover {
+  border: 1px solid rgb(155, 160, 163);
 }
