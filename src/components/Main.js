@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 import imageObj from '../Imagefiles.js';
+import SingleAvatar from './SingleAvatar'
+
 
 class Main extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      image: imageObj["avatar1"],
+      imageObj: imageObj
+    }
   }
 
   render() {
-    console.log(imageObj["avatar1"])
     return (
       <div>
-        <img src={imageObj["avatar1"]}/>
-        <div>
-          Here comes popover
-        </div>
+        <SingleAvatar image={this.state.image}/>
       </div>
     );
   }
