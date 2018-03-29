@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import imageObj from '../Imagefiles.js';
 import SingleAvatar from './SingleAvatar'
-
+import AvatarList from './AvatarList'
 
 class Main extends Component {
 
@@ -17,6 +17,7 @@ class Main extends Component {
     return (
       <div>
         <SingleAvatar image={this.state.image}/>
+        <AvatarList />
       </div>
     );
   }
