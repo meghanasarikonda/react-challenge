@@ -17,6 +17,9 @@ class AvatarList extends Component {
         <div className="triangle"></div>
         <div className="popover">
           <h1 className="title">Choose your avatar</h1>
+          {this.state.obj.map((imageObj) =>
+            <img src={imageObj["src"]} key={imageObj["id"]} alt={imageObj["label"]} />
+          )}
         </div>
       </div>
     );
