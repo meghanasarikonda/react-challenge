@@ -11,13 +11,13 @@ import avatar6 from './Images/avatar6.png';
 // export avatar4 as avatar4;
 // export avatar5 as avatar5;
 // export avatar6 as avatar6;
+var ImageList = [
+  { "src": avatar1, "label": "Avatar 1", "id": 1 },
+  { "src": avatar2, "label": "Avatar 2", "id": 2 },
+  { "src": avatar3, "label": "Avatar 3", "id": 3 },
+  { "src": avatar4, "label": "Avatar 4", "id": 4 },
+  { "src": avatar5, "label": "Avatar 5", "id": 5 },
+  { "src": avatar6, "label": "Avatar 6", "id": 6 }
+]
 
-
-export default {
-  avatar1,
-  avatar2,
-  avatar3,
-  avatar4,
-  avatar5,
-  avatar6
-}
+export default ImageList;
