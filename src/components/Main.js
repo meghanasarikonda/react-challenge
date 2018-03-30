@@ -28,9 +28,9 @@ class Main extends Component {
 
     this.handleClick = () => {
       if (this.state.openAvatarList) {
-        this.setState({
-          openAvatarList: false
-        })
+        // this.setState({
+        //   openAvatarList: false
+        // })
       }
     }
 
@@ -41,7 +41,7 @@ class Main extends Component {
 
     let display;
     if (this.state.openAvatarList) {
-       display = <AvatarList imageObj={this.state.ImageList} imageUpdater={this.imageUpdater} initial={this.state.initial} />
+       display = <AvatarList imageObj={this.state.ImageList} imageUpdater={this.imageUpdater} initial={this.state.initial} image={this.state.image} />
     }
 
     return (

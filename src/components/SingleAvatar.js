@@ -21,13 +21,14 @@ class SingleAvatar extends Component {
     console.log('props', this.props.image)
 
     return (
-      <div>
+      <div >
         <img className="avatar"
              src={this.props.image["src"]}
              key={this.props.image["id"]}
              alt={this.props.image["label"]}
              onClick={this.handleClick}
         />
+
       </div>
     );
   }
