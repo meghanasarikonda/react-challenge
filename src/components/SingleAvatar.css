@@ -6,4 +6,5 @@
 
 .avatar:hover {
   border: 1px solid rgb(155, 160, 163);
+  cursor: pointer;
 }

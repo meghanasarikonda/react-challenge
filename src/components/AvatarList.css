@@ -1,5 +1,5 @@
 body {
-    text-align: center;
+  text-align: center;
 }
 
 .popover {
@@ -33,10 +33,14 @@ body {
   margin-bottom: 14px;
 }
 
-img {
+.avatarlist {
   height: 60px;
   width: 60px;
   border-radius: 50%;
-  margin-right: 5px;
-  margin-top: 4px;
+  border: 3px solid black;
+}
+
+.avatarlist:hover {
+  border: 3px solid rgb(155, 160, 163);
+  cursor: pointer;
 }
