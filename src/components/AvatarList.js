@@ -7,7 +7,7 @@ class AvatarList extends Component {
     super(props);
 
     this.state = {
-      obj: this.props.imageObj
+      obj: this.props.imageObj,
     }
 
     this.handleClick = (i, event) => {
@@ -30,7 +30,13 @@ class AvatarList extends Component {
         <div className="popover">
           <h1 className="title">Choose your avatar</h1>
           {this.state.obj.map((imageObj) =>
-            <img className="avatarlist" src={imageObj["src"]} key={imageObj["id"]} alt={imageObj["label"]} onClick={this.handleClick.bind(this, imageObj["id"])} />
+            <img
+              className="avatarlist"
+              src={imageObj["src"]}
+              key={imageObj["id"]}
+              alt={imageObj["label"]}
+              onClick={this.handleClick.bind(this, imageObj["id"])}
+            />
           )}
         </div>
       </div>

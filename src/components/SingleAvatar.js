@@ -10,26 +10,24 @@ class SingleAvatar extends Component {
       initial: true
     }
 
-    this.handleClick = () => {
-
+    this.handleClick = (e) => {
+      e.preventDefault();
+      this.props.openPopover();
     }
   }
 
 
   render() {
-    console.log('state', this.state.image)
     console.log('props', this.props.image)
-
-    // const image = this.state.image
-    // const img = this.state.initial ? (
-    //     <img className="avatar" src={this.state.image["src"]} key={this.state.image["id"]} alt={this.state.image["label"]} onClick={() => console.log('hurray')} onClick={this.handleClick} />
-    // ) : (
-    //   <h1>Here</h1>
-    // )
 
     return (
       <div>
-        <img className="avatar" src={this.props.image["src"]} key={this.props.image["id"]} alt={this.props.image["label"]} onClick={() => console.log('hurray')} onClick={this.handleClick} />
+        <img className="avatar"
+             src={this.props.image["src"]}
+             key={this.props.image["id"]}
+             alt={this.props.image["label"]}
+             onClick={this.handleClick}
+        />
       </div>
     );
   }

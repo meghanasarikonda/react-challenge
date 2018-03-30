@@ -10,7 +10,7 @@ class Main extends Component {
     this.state = {
       image: ImageList[0],
       ImageList: ImageList,
-      initial: true
+      openAvatarList: false
     }
 
     this.imageUpdater = (id) => {
@@ -19,14 +19,35 @@ class Main extends Component {
         image: ImageList[id - 1]
       });
     }
+
+    this.openPopover = () => {
+      this.setState({
+        openAvatarList: true
+      })
+    }
+
+    this.handleClick = () => {
+      if (this.state.openAvatarList) {
+        this.setState({
+          openAvatarList: false
+        })
+      }
+    }
+
   }
 
   render() {
     console.log(this.state.image, "line24")
+
+    let display;
+    if (this.state.openAvatarList) {
+       display = <AvatarList imageObj={this.state.ImageList} imageUpdater={this.imageUpdater} initial={this.state.initial} />
+    }
+
     return (
-      <div>
-        <SingleAvatar image={this.state.image} />
-        <AvatarList imageObj={this.state.ImageList} imageUpdater={this.imageUpdater} initial={this.state.initial} />
+      <div onClick={this.handleClick}>
+        <SingleAvatar image={this.state.image} openPopover={this.openPopover}/>
+        {display}
       </div>
     );
   }
