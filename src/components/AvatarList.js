@@ -14,15 +14,12 @@ class AvatarList extends Component {
     }
 
     this.handleClick = (i, event) => {
-      // console.log('cool')
-      // console.log(event.target, 'event')
-      // console.log(i, 'i line 19')
-      // console.log(event.target, 'event target')
-      console.log("id", i)
+      // console.log("id", i)
       this.setState({
         isLoading: true,
         loadingId: i
       })
+      this.props.loadingChecker(true);
       // if it is clicked, consider as loading
       // set the state to islOADING: TRUE
       // BEFORE RETURN i think in class names, I'll have a checker to check if it is in loading state
@@ -43,7 +40,9 @@ class AvatarList extends Component {
           this.props.imageUpdater(i);
           this.setState({
             isLoading: false
-          })
+          });
+          this.props.loadingChecker(false);
+          this.props.closePopover();
         }, 1000)
 
       })
@@ -55,8 +54,6 @@ class AvatarList extends Component {
 
 
   render() {
-    console.log(this.state.isLoading, 'isLoading')
-    // console.log(this.state.obj, 'AvatarList')
     return (
       <div>
         <div className="triangle"></div>
