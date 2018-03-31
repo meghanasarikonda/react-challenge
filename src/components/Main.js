@@ -10,7 +10,8 @@ class Main extends Component {
     this.state = {
       image: ImageList[0],
       ImageList: ImageList,
-      openAvatarList: false
+      openAvatarList: false,
+      isLoading: false
     }
 
     this.imageUpdater = (id) => {
@@ -26,28 +27,48 @@ class Main extends Component {
       })
     }
 
-    this.handleClick = () => {
-      if (this.state.openAvatarList) {
-        // this.setState({
-        //   openAvatarList: false
-        // })
-      }
+    this.loadingChecker = (bool) => {
+      this.setState({
+        isLoading: bool
+      })
+
+    this.closePopover = () => {
+      this.setState({
+        openAvatarList: false
+      })
+    }
+
+    }
+
+    this.singleavatar = () => {
+
+      setTimeout(() => {
+        if (!this.state.isLoading) {
+          this.setState({
+            openAvatarList: false
+          })
+        }
+      }, 200)
     }
 
   }
 
   render() {
-    console.log(this.state.image, "line24")
+    console.log(this.state.isLoading, "line24")
 
     let display;
     if (this.state.openAvatarList) {
-       display = <AvatarList imageObj={this.state.ImageList} imageUpdater={this.imageUpdater} initial={this.state.initial} image={this.state.image} />
+       display = <AvatarList imageObj={this.state.ImageList} imageUpdater={this.imageUpdater} initial={this.state.initial} image={this.state.image} loadingChecker={this.loadingChecker} closePopover={this.closePopover} />
     }
 
     return (
-      <div onClick={this.handleClick}>
-        <SingleAvatar image={this.state.image} openPopover={this.openPopover}/>
+      <div>
+        <div>
+        <SingleAvatar image={this.state.image} openPopover={this.openPopover} />
+        </div>
+        <div onClick={this.singleavatar}>
         {display}
+        </div>
       </div>
     );
   }
