@@ -11,10 +11,11 @@ class AvatarList extends Component {
       select: false,
       obj: this.props.imageObj,
       isLoading: false,
+      isShown: true
     }
 
     this.handleClick = (i, event) => {
-      // console.log("id", i)
+      console.log("id", i)
       this.setState({
         isLoading: true,
         loadingId: i
@@ -42,6 +43,9 @@ class AvatarList extends Component {
             isLoading: false
           });
           this.props.loadingChecker(false);
+          this.setState({
+            isShown: false
+          })
           this.props.closePopover();
         }, 1000)
 
@@ -54,28 +58,32 @@ class AvatarList extends Component {
 
 
   render() {
+
     return (
-      <div>
-        <div className="triangle"></div>
-        <div className="popover">
+      <span>
+        <div className={this.state.isShown ? "triangle" : "popfadeout"}></div>
+        <div className={this.state.isShown ? "popover" : "popfadeout"}>
           <h1 className="title">Choose your avatar</h1>
-          <div className={this.state.loading ? "spinner" : ''}>
-          {this.state.obj.map((imageObj) =>
-            <p className={this.state.isLoading ? (imageObj["id"] === this.state.loadingId ? "spinner" : '') : ''}>
-            <img
-              className={(imageObj["id"] === this.props.image["id"] ? "currentavatar": "avatarlist")
-              }
-              src={imageObj["src"]}
-              key={imageObj["id"]}
-              alt={imageObj["label"]}
-              onClick={this.handleClick.bind(this, imageObj["id"])}
-            />
-            </p>
-          )}
-          </div>
+          <ul>
+
+            {
+              this.state.obj.map((imageObj) => (
+                <li className={this.state.isLoading ? (imageObj["id"] === this.state.loadingId  ? "avatarlistload spinner " : "avatarlist") : (imageObj["id"] === this.props.image["id"] ? "currentavatar": "avatarlist")} onClick={this.handleClick.bind(this, imageObj["id"])}>
+                  <div className={this.state.isLoading ? "": "image"}><img
+                    src={imageObj["src"]}
+                    key={imageObj["id"]}
+                    alt={imageObj["label"]}
+                    onClick={this.handleClick.bind(this, imageObj["id"])}
+                  /></div>
+
+                </li>
+              ))
+            }
+          </ul>
         </div>
-      </div>
+      </span>
     );
+
   }
 }
 
