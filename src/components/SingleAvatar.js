@@ -5,20 +5,14 @@ class SingleAvatar extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      image: this.props.image,
-      initial: true
-    }
-
     this.handleClick = (e) => {
       e.preventDefault();
       this.props.openPopover();
     }
   }
 
-
   render() {
-    console.log('props', this.props.image)
+    //console.log('props', Object.keys(this.props).length)
 
     return (
       <div >
@@ -28,7 +22,6 @@ class SingleAvatar extends Component {
              alt={this.props.image["label"]}
              onClick={this.handleClick}
         />
-
       </div>
     );
   }
