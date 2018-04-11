@@ -70,9 +70,9 @@ class AvatarList extends Component {
   render() {
 
     return (
-      <span>
-        <div className={this.state.popover ? "triangle" : "popfadeout"}></div>
-        <div className={this.state.popover ? "popover" : "popfadeout"} >
+      <div>
+        <div className={this.state.popover ? "triangle" : ""}></div>
+        <div className={this.state.popover ? "popover" : ""} >
           <h1 className="title">Choose your avatar</h1>
           <ul ref={node => this.node = node}>
 
@@ -96,7 +96,7 @@ class AvatarList extends Component {
 
           </ul>
         </div>
-      </span>
+      </div>
     );
 
   }

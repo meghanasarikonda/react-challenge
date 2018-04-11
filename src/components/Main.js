@@ -74,6 +74,7 @@ class Main extends Component {
             image={this.state.image}
             loadingChecker={this.loadingChecker}
           />
+
         </CSSTransition>
 
       </div>
