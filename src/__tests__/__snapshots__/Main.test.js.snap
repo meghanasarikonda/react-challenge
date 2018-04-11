@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main should render correctly 1`] = `
+<Main>
+  <div>
+    <SingleAvatar
+      image={
+        Object {
+          "id": 1,
+          "label": "Avatar 1",
+          "src": "avatar1.png",
+        }
+      }
+      openPopover={[Function]}
+    >
+      <div>
+        <img
+          alt="Avatar 1"
+          className="avatar"
+          key="1"
+          onClick={[Function]}
+          src="avatar1.png"
+        />
+      </div>
+    </SingleAvatar>
+    <CSSTransition
+      classNames="box"
+      in={false}
+      timeout={300}
+      unmountOnExit={true}
+    >
+      <Transition
+        appear={false}
+        enter={true}
+        exit={true}
+        in={false}
+        mountOnEnter={false}
+        onEnter={[Function]}
+        onEntered={[Function]}
+        onEntering={[Function]}
+        onExit={[Function]}
+        onExited={[Function]}
+        onExiting={[Function]}
+        timeout={300}
+        unmountOnExit={true}
+      />
+    </CSSTransition>
+  </div>
+</Main>
+`;

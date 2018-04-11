@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SingleAvatar should render correctly 1`] = `
+<SingleAvatar
+  image={
+    Object {
+      "id": 1,
+      "label": "picture",
+      "src": "https://i2.wp.com/beebom.com/wp-content/uploads/2016/01/Reverse-Image-Search-Engines-Apps-And-Its-Uses-2016.jpg",
+    }
+  }
+  openPopover={[Function]}
+>
+  <div>
+    <img
+      alt="picture"
+      className="avatar"
+      key="1"
+      onClick={[Function]}
+      src="https://i2.wp.com/beebom.com/wp-content/uploads/2016/01/Reverse-Image-Search-Engines-Apps-And-Its-Uses-2016.jpg"
+    />
+  </div>
+</SingleAvatar>
+`;

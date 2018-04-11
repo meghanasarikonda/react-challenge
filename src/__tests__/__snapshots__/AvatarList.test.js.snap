@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AvatarList should render correctly 1`] = `
+<AvatarList
+  closebox={[Function]}
+  image={
+    Object {
+      "id": 1,
+      "label": "picture",
+      "src": "https://i2.wp.com/beebom.com/wp-content/uploads/2016/01/Reverse-Image-Search-Engines-Apps-And-Its-Uses-2016.jpg",
+    }
+  }
+  imageUpdater={[Function]}
+  imagelist={
+    Array [
+      Object {
+        "id": 1,
+        "label": "Avatar 1",
+        "src": "avatar1.png",
+      },
+      Object {
+        "id": 2,
+        "label": "Avatar 2",
+        "src": "avatar2.png",
+      },
+      Object {
+        "id": 3,
+        "label": "Avatar 3",
+        "src": "avatar3.png",
+      },
+      Object {
+        "id": 4,
+        "label": "Avatar 4",
+        "src": "avatar4.png",
+      },
+      Object {
+        "id": 5,
+        "label": "Avatar 5",
+        "src": "avatar5.png",
+      },
+      Object {
+        "id": 6,
+        "label": "Avatar 6",
+        "src": "avatar6.png",
+      },
+    ]
+  }
+  loadingChecker={[Function]}
+>
+  <div>
+    <div
+      className="Avatarlist-triangle"
+    />
+    <div
+      className="Avatarlist-popover"
+    >
+      <h1
+        className="Avatarlist-title"
+      >
+        Choose your avatar
+      </h1>
+      <ul>
+        <li
+          className="Avatarlist-currentavatar"
+          key="99"
+          onClick={[Function]}
+        >
+          <div
+            className="Avatarlist-image"
+          >
+            <img
+              alt="Avatar 1"
+              key="1"
+              src="avatar1.png"
+            />
+          </div>
+        </li>
+        <li
+          className="Avatarlist-avatarlist"
+          key="98"
+          onClick={[Function]}
+        >
+          <div
+            className="Avatarlist-image"
+          >
+            <img
+              alt="Avatar 2"
+              key="2"
+              src="avatar2.png"
+            />
+          </div>
+        </li>
+        <li
+          className="Avatarlist-avatarlist"
+          key="97"
+          onClick={[Function]}
+        >
+          <div
+            className="Avatarlist-image"
+          >
+            <img
+              alt="Avatar 3"
+              key="3"
+              src="avatar3.png"
+            />
+          </div>
+        </li>
+        <li
+          className="Avatarlist-avatarlist"
+          key="96"
+          onClick={[Function]}
+        >
+          <div
+            className="Avatarlist-image"
+          >
+            <img
+              alt="Avatar 4"
+              key="4"
+              src="avatar4.png"
+            />
+          </div>
+        </li>
+        <li
+          className="Avatarlist-avatarlist"
+          key="95"
+          onClick={[Function]}
+        >
+          <div
+            className="Avatarlist-image"
+          >
+            <img
+              alt="Avatar 5"
+              key="5"
+              src="avatar5.png"
+            />
+          </div>
+        </li>
+        <li
+          className="Avatarlist-avatarlist"
+          key="94"
+          onClick={[Function]}
+        >
+          <div
+            className="Avatarlist-image"
+          >
+            <img
+              alt="Avatar 6"
+              key="6"
+              src="avatar6.png"
+            />
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</AvatarList>
+`;
