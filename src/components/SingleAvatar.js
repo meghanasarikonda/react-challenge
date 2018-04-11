@@ -12,15 +12,14 @@ class SingleAvatar extends Component {
   }
 
   render() {
-    //console.log('props', Object.keys(this.props).length)
-
     return (
       <div >
-        <img className="avatar"
-             src={this.props.image["src"]}
-             key={this.props.image["id"]}
-             alt={this.props.image["label"]}
-             onClick={this.handleClick}
+        <img
+          className="avatar"
+          src={this.props.image["src"]}
+          key={this.props.image["id"]}
+          alt={this.props.image["label"]}
+          onClick={this.handleClick}
         />
       </div>
     );
