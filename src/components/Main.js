@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ImageList from '../Imagefiles.js';
 import SingleAvatar from './SingleAvatar';
 import AvatarList from './AvatarList';
+import './Main.css';
 import { CSSTransition } from 'react-transition-group';
 
 
@@ -26,29 +27,27 @@ class Main extends Component {
     this.openPopover = () => {
       this.setState({
         openAvatarList: true
-      })
+      });
+    }
+
+    this.closebox = () => {
+      this.setState({
+        openAvatarList: false
+      });
     }
 
     this.loadingChecker = (bool) => {
       this.setState({
         isLoading: bool
-      })
-
-      this.closePopover = () => {
-        this.setState({
-          openAvatarList: false
-        })
-      }
-
+      });
     }
 
     this.singleavatar = () => {
-      console.log('line 44 singleavatar')
       setTimeout(() => {
         if (!this.state.isLoading) {
           this.setState({
             openAvatarList: false
-          })
+          });
         }
       }, 200)
     }
@@ -57,20 +56,24 @@ class Main extends Component {
 
 
   render() {
-
     return (
       <div>
 
         <SingleAvatar image={this.state.image} openPopover={this.openPopover} />
+
         <CSSTransition
           in={this.state.openAvatarList}
-          classNames="message"
+          classNames="box"
           timeout={300}
           unmountOnExit
         >
-
-        <AvatarList imageObj={this.state.ImageList} imageUpdater={this.imageUpdater} initial={this.state.initial} image={this.state.image} loadingChecker={this.loadingChecker} closePopover={this.closePopover}/>
-
+          <AvatarList
+            closebox={this.closebox}
+            imageObj={this.state.ImageList}
+            imageUpdater={this.imageUpdater}
+            image={this.state.image}
+            loadingChecker={this.loadingChecker}
+          />
         </CSSTransition>
 
       </div>

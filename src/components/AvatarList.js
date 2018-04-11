@@ -8,23 +8,20 @@ class AvatarList extends Component {
     super(props);
 
     this.state = {
+      closePopover: this.props.closePopover,
       select: false,
       obj: this.props.imageObj,
       isLoading: false,
-      isShown: true
+      popover: true
     }
 
     this.handleClick = (i, event) => {
-      console.log("id", i)
+
       this.setState({
         isLoading: true,
         loadingId: i
-      })
+      });
       this.props.loadingChecker(true);
-      // if it is clicked, consider as loading
-      // set the state to islOADING: TRUE
-      // BEFORE RETURN i think in class names, I'll have a checker to check if it is in loading state
-      // if it is, then I'll attach a spinner class around it
 
       axios.get('/', {
         params: {
@@ -45,40 +42,58 @@ class AvatarList extends Component {
           this.props.loadingChecker(false);
           this.setState({
             isShown: false
-          })
-          this.props.closePopover();
+          });
+          this.props.closebox();
         }, 1000)
-
       })
 
     }
 
+    this.handleclick = (e) => {
+    if (this.node.contains(e.target)) {
+      return;
+    }
+    this.props.closebox()
+  }
+
 
   }
 
+  componentWillMount() {
+    document.addEventListener('mousedown', this.handleclick, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleclick, false);
+  }
 
   render() {
 
     return (
       <span>
-        <div className={this.state.isShown ? "triangle" : "popfadeout"}></div>
-        <div className={this.state.isShown ? "popover" : "popfadeout"}>
+        <div className={this.state.popover ? "triangle" : "popfadeout"}></div>
+        <div className={this.state.popover ? "popover" : "popfadeout"} >
           <h1 className="title">Choose your avatar</h1>
-          <ul>
+          <ul ref={node => this.node = node}>
 
             {
               this.state.obj.map((imageObj) => (
-                <li className={this.state.isLoading ? (imageObj["id"] === this.state.loadingId  ? "avatarlistload spinner " : "avatarlist") : (imageObj["id"] === this.props.image["id"] ? "currentavatar": "avatarlist")} onClick={this.handleClick.bind(this, imageObj["id"])}>
-                  <div className={this.state.isLoading ? "": "image"}><img
-                    src={imageObj["src"]}
-                    key={imageObj["id"]}
-                    alt={imageObj["label"]}
-                    onClick={this.handleClick.bind(this, imageObj["id"])}
-                  /></div>
+                <li
+                  key={100 - imageObj["id"]}
+                  className={this.state.isLoading ? (imageObj["id"] === this.state.loadingId  ? "avatarlistload spinner " : "avatarlist") : (imageObj["id"] === this.props.image["id"] ? "currentavatar": "avatarlist")}
+                  onClick={this.handleClick.bind(this, imageObj["id"])}>
 
+                  <div className={this.state.isLoading ? "": "image"}>
+                    <img
+                      src={imageObj["src"]}
+                      key={imageObj["id"]}
+                      alt={imageObj["label"]}
+                    />
+                  </div>
                 </li>
               ))
             }
+
           </ul>
         </div>
       </span>
