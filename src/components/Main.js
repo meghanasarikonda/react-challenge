@@ -69,7 +69,7 @@ class Main extends Component {
         >
           <AvatarList
             closebox={this.closebox}
-            imageObj={this.state.ImageList}
+            imagelist={this.state.ImageList}
             imageUpdater={this.imageUpdater}
             image={this.state.image}
             loadingChecker={this.loadingChecker}

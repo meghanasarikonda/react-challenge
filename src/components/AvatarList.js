@@ -9,8 +9,7 @@ class AvatarList extends Component {
 
     this.state = {
       closePopover: this.props.closePopover,
-      select: false,
-      obj: this.props.imageObj,
+      imageList: this.props.imagelist,
       isLoading: false,
       popover: true
     }
@@ -30,10 +29,6 @@ class AvatarList extends Component {
       })
       .then((response) => {
 
-        this.setState({
-          select: true
-        })
-
         setTimeout(() => {
           this.props.imageUpdater(i);
           this.setState({
@@ -49,7 +44,7 @@ class AvatarList extends Component {
 
     }
 
-    this.handleclick = (e) => {
+    this.clickoutside = (e) => {
     if (this.node.contains(e.target)) {
       return;
     }
@@ -60,11 +55,11 @@ class AvatarList extends Component {
   }
 
   componentWillMount() {
-    document.addEventListener('mousedown', this.handleclick, false);
+    document.addEventListener('mousedown', this.clickoutside, false);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleclick, false);
+    document.removeEventListener('mousedown', this.clickoutside, false);
   }
 
   render() {
@@ -77,7 +72,7 @@ class AvatarList extends Component {
           <ul ref={node => this.node = node}>
 
             {
-              this.state.obj.map((imageObj) => (
+              this.state.imageList.map((imageObj) => (
                 <li
                   key={100 - imageObj["id"]}
                   className={this.state.isLoading ? (imageObj["id"] === this.state.loadingId  ? "Avatarlist-avatarlistload spinner " : "Avatarlist-avatarlist") : (imageObj["id"] === this.props.image["id"] ? "Avatarlist-currentavatar": "Avatarlist-avatarlist")}
