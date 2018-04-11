@@ -22,6 +22,6 @@ The user clicks on the avatar to open a popover which allows the user to choose 
 
 ### Usage
 
-*npm install
-*npm run start
-*open http://localhost:8080
+* npm install
+* npm start/ yarn start
+* open http://localhost:3000
