@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import AvatarList from '../components/AvatarList';
 import Main from '../components/Main';
 import Enzyme, { shallow, mount, render } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';

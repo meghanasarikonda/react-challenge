@@ -13,9 +13,7 @@ function setup() {
       id: 1,
       label: 'picture'
     },
-    openPopover: () => {
-      console.log('opened popover')
-    }
+    openPopover: jest.fn()
   }
  
   const enzymeWrapper = mount(<SingleAvatar {...props} />)
@@ -39,32 +37,31 @@ describe('SingleAvatar', () => {
   });
 
   it('img should have a class named avatar', () => {
-    const { enzymeWrapper } = setup()
+    const { enzymeWrapper } = setup();
     expect(enzymeWrapper.find('img').hasClass('avatar')).toBe(true);
   });
 
   it('checking component props', () => {
-    const { enzymeWrapper } = setup()
-    const SingleAvatarProps = enzymeWrapper.find('SingleAvatar').props()
+    const { enzymeWrapper } = setup();
+    const SingleAvatarProps = enzymeWrapper.find('SingleAvatar').props();
 
-    expect(Object.keys(SingleAvatarProps).length).toBe(2)
-    expect(typeof SingleAvatarProps.image).toBe('object')
-    expect(typeof SingleAvatarProps.openPopover).toBe('function')
+    expect(Object.keys(SingleAvatarProps).length).toBe(2);
+    expect(typeof SingleAvatarProps.image).toBe('object');
+    expect(typeof SingleAvatarProps.openPopover).toBe('function');
+  });
 
+  it('should have handleClick method', () => {
+    const {enzymeWrapper} = setup();
+    expect(typeof enzymeWrapper.instance().handleClick).toBe('function');
   });
 
   it('click event', () => {
-    const { enzymeWrapper } = setup()
-    const SingleAvatarProps = enzymeWrapper.find('SingleAvatar').props()
+    window.alert = jest.fn();
+    const { enzymeWrapper } = setup();
+    const SingleAvatarProps = enzymeWrapper.find('SingleAvatar').props();
 
-    //console.log(enzymeWrapper.find('img').props())
-    enzymeWrapper.find('img').simulate('click')
-
-    // expect(SingleAvatarProps.toEqual(false);
-    // output.simulate('click');
-    // expect(output.state().clicked).toEqual(true);
-  })
-
-
+    enzymeWrapper.find('img').simulate('click');
+    expect(enzymeWrapper.props().openPopover).toHaveBeenCalled();
+  });
 
 })
