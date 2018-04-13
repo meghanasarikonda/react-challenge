@@ -28,4 +28,4 @@ The user clicks on the avatar to open a popover which allows the user to choose 
 
 ### Tesing
 
-* npm test or yarn test
+* npm test (or) yarn test
