@@ -25,3 +25,7 @@ The user clicks on the avatar to open a popover which allows the user to choose 
 * npm install
 * npm start/ yarn start
 * open http://localhost:3000
+
+### Tesing
+
+* npm test or yarn test
