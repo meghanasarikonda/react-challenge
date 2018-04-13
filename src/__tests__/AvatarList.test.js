@@ -80,6 +80,11 @@ describe('AvatarList', () => {
     expect(typeof enzymeWrapper.instance().clickoutside).toBe('function');
   });
 
+  it('should have chooseClass method', () => {
+    const {enzymeWrapper} = setup();
+    expect(typeof enzymeWrapper.instance().chooseClass).toBe('function');
+  })
+
   it('should have componentWillMount method', () => {
     const {enzymeWrapper} = setup();
     expect(typeof enzymeWrapper.instance().componentWillMount).toBe('function');

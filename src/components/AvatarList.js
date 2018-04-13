@@ -51,6 +51,26 @@ class AvatarList extends Component {
       this.props.closebox();
     }
 
+    this.chooseClass = (imageObj) => {
+      if (this.state.isLoading) {
+        if (imageObj["id"] === this.state.loadingId) {
+          return "Avatarlist-avatarlistload spinner";
+        } else {
+          if (imageObj["id"] === this.props.image["id"]) {
+            return "Avatarlist-currentavatar";
+          } else {
+            return "Avatarlist-avatarlist";
+          }
+        }
+      } else {
+        if (imageObj["id"] === this.props.image["id"]) {
+          return "Avatarlist-currentavatar";
+        } else {
+          return "Avatarlist-avatarlist";
+        }
+      }
+    }
+
   }
 
   componentWillMount() {
@@ -74,15 +94,7 @@ class AvatarList extends Component {
               this.state.imageList.map((imageObj) => (
                 <li
                   key={100 - imageObj["id"]}
-                  className={this.state.isLoading
-                    ? (imageObj["id"] === this.state.loadingId
-                      ? "Avatarlist-avatarlistload spinner "
-                      : (imageObj["id"] === this.props.image["id"]
-                        ? "Avatarlist-currentavatar"
-                        : "Avatarlist-avatarlist"))
-                    : (imageObj["id"] === this.props.image["id"]
-                      ? "Avatarlist-currentavatar"
-                      : "Avatarlist-avatarlist")}
+                  className={this.chooseClass(imageObj)}
                   onClick={this.handleClick.bind(this, imageObj["id"])}>
 
                   <div className={this.state.isLoading ? "": "Avatarlist-image"}>
