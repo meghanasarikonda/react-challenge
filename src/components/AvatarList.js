@@ -11,11 +11,11 @@ class AvatarList extends Component {
       closePopover: this.props.closePopover,
       imageList: this.props.imagelist,
       isLoading: false,
-      popover: true
+      popover: true,
+      loadingId: -1
     }
 
     this.handleClick = (i, event) => {
-
       this.setState({
         isLoading: true,
         loadingId: i
@@ -39,18 +39,17 @@ class AvatarList extends Component {
             isShown: false
           });
           this.props.closebox();
-        }, 1000)
-      })
+        }, 1000);
+      });
 
     }
 
     this.clickoutside = (e) => {
-    if (this.node.contains(e.target)) {
-      return;
+      if (this.node.contains(e.target)) {
+        return;
+      }
+      this.props.closebox();
     }
-    this.props.closebox()
-  }
-
 
   }
 
@@ -75,7 +74,15 @@ class AvatarList extends Component {
               this.state.imageList.map((imageObj) => (
                 <li
                   key={100 - imageObj["id"]}
-                  className={this.state.isLoading ? (imageObj["id"] === this.state.loadingId  ? "Avatarlist-avatarlistload spinner " : "Avatarlist-avatarlist") : (imageObj["id"] === this.props.image["id"] ? "Avatarlist-currentavatar": "Avatarlist-avatarlist")}
+                  className={this.state.isLoading
+                    ? (imageObj["id"] === this.state.loadingId
+                      ? "Avatarlist-avatarlistload spinner "
+                      : (imageObj["id"] === this.props.image["id"]
+                        ? "Avatarlist-currentavatar"
+                        : "Avatarlist-avatarlist"))
+                    : (imageObj["id"] === this.props.image["id"]
+                      ? "Avatarlist-currentavatar"
+                      : "Avatarlist-avatarlist")}
                   onClick={this.handleClick.bind(this, imageObj["id"])}>
 
                   <div className={this.state.isLoading ? "": "Avatarlist-image"}>
@@ -98,3 +105,7 @@ class AvatarList extends Component {
 }
 
 export default AvatarList;
+
+
+// "Avatarlist-avatarlist "
+// Avatarlist-currentavatar

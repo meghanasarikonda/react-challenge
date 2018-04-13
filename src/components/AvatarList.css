@@ -44,11 +44,12 @@ body {
 
 
 .Avatarlist-title {
-  font: 'Source Sans Pro';
+  font-family: 'Source Sans Pro', sans-serif;
   color: rgb(249, 249, 249);
   font-size: 16px;
   margin-top: 14px;
   margin-bottom: 14px;
+  padding-top: 8px;
 }
 
 .Avatarlist-avatarlist {
@@ -142,13 +143,6 @@ p {
   display: inline;
 }
 
-h1 {
-  font: 'Source Sans Pro';
-  color: rgb(100, 249, 249);
-  font-size: 16px;
-  margin-top: 14px;
-  margin-bottom: 14px;
-}
 
 .spinner:before {
   content: " ";
